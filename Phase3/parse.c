@@ -4,14 +4,14 @@ int lookahead;
 
 void parse()
 {
-    printf("Before lexan: %d\n", lookahead);
+    //printf("Before lexan: %d\n", lookahead);
     lookahead = lexan();
-    printf("After lexan: %d\n", lookahead);
+    //printf("After lexan: %d\n", lookahead);
     while (lookahead != DONE) {
         expr(); match(';');
     }
-    printf("Parsing started...\n"); 
-    printf("Lookahead: %d\n", lookahead);
+    //printf("Parsing started...\n"); 
+    //printf("Lookahead: %d\n", lookahead);
 }
 
 void expr()
