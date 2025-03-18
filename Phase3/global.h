@@ -1,3 +1,6 @@
+#ifndef GLOBAL_H
+#define GLOBAL_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,22 +17,25 @@
 #define DONE   260
 
 int tokenval;
+int lexan();
+void parse();
+void expr();
+void term();
+void factor();
+void match(int t);
+void emit(int t, int tval);
+void init();
+void error(char* m);
+int lookup(char s[]);
+int insert(char s[], int tok);
 
 int lineno;
+int lookahead;
+FILE *output, *err, *input;
 
 struct entry {
    char *lexptr;
    int token;
    };
 
-   int lexan();
-   void parse();
-   void expr();
-   void term();
-   void factor();
-   void match(int t);
-   void emit(int t, int tval);
-   void init();
-   void error(char* m);
-   int lookup(char s[]);
-   int insert(char s[], int tok);
+#endif
