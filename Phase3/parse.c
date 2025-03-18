@@ -4,17 +4,20 @@ int lookahead;
 
 void parse()
 {
+    printf("Before lexan: %d\n", lookahead);
     lookahead = lexan();
+    printf("After lexan: %d\n", lookahead);
     while (lookahead != DONE) {
         expr(); match(';');
     }
+    printf("Parsing started...\n"); 
+    printf("Lookahead: %d\n", lookahead);
 }
 
 void expr()
 {
     int t;
     term();
-
     while(1)
         switch (lookahead) {
             case '+': case '-':
@@ -44,8 +47,12 @@ void term()
 void match(int t)
 {
     if (lookahead == t)
+    {
         lookahead = lexan();
-    else error("syntax error");
+        printf("Matching token: %d\n", t);
+    }
+    else 
+        fprintf(err, "line %d: Syntax error!", lineno);
 }
 
 void factor()
@@ -62,7 +69,7 @@ void factor()
             break;
         default:
             error("syntax error");
+            fprintf(err, "line %d: Syntax error!", lineno);
     }
 }
-
 
