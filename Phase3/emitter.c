@@ -23,10 +23,10 @@ void emit(int t, int tval)
 		break;
 	case NUM:
 		//printf("%d", tval);
-		fprintf(output, "push %d\n", tval); //in al cases replace with fprintf
+		fprintf(output, "push %d\n", tval); //in all cases replace with fprintf
 		break;
 	case ID:
-		fprintf(output ,"push %s\n", symtable[tval].lexptr); 
+		fprintf(output, "push %s\n", symtable[tval].lexptr);
 		break;
 	default:
 		fprintf(output,"token %d, tokenval %d\n", t, tval);
