@@ -1,18 +1,14 @@
 #include "global.h"
-
+//eof token is DONE
 int lookahead;
 
 void parse()
 {
-    //printf("Before lexan: %d\n", lookahead);
     lookahead = lexan();
-    //printf("After lexan: %d\n", lookahead);
-    while (lookahead != DONE) {
+    while (lookahead != DONE) { //we used DONE = eof
         expr(); match(';');
     }
-    //printf("Parsing started...\n"); 
-    //printf("Lookahead: %d\n", lookahead);
-}
+} //start rule
 
 void expr()
 {
@@ -49,10 +45,9 @@ void match(int t)
     if (lookahead == t)
     {
         lookahead = lexan();
-        printf("Matching token: %d\n", t);
     }
     else 
-        fprintf(err, "line %d: Syntax error!", lineno);
+        error("Syntax error!");
 }
 
 void factor()
@@ -69,7 +64,7 @@ void factor()
             break;
         default:
             error("syntax error");
-            fprintf(err, "line %d: Syntax error!", lineno);
+            //fprintf(err, "line %d: Syntax error!", lineno);
     }
 }
 
