@@ -18,6 +18,8 @@
 
 int tokenval;
 int lexan();
+void stmt();
+void CS();
 void parse();
 void expr();
 void term();
