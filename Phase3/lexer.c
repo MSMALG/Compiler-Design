@@ -26,7 +26,7 @@ int lexan()
                         t = getc(input);
                         b = b + 1;
                         if (b >= BSIZE)
-                        fprintf(err, "line %d: Compiler error: Lexeme too long\n", lineno);
+                        error("Compiler Error\n"); //show in error file the error mssg
                     }
                 
                     lexbuf[b] = EOS;
@@ -42,7 +42,7 @@ int lexan()
                         return DONE;
                         else {
                            tokenval = NONE;
-                           fprintf(err, "line %d: Unexpected character '%c' (ASCII: %d)\n", lineno, t, t);
+                           //if an undefined char is read show this error in the error file err
                            return t;
                            }
                     }
