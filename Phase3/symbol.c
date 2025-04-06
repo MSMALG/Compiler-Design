@@ -45,4 +45,3 @@ int insert(char s[], int tok)
 	return lastentry;
 }
 
-
