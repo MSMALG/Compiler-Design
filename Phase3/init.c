@@ -13,4 +13,3 @@ void init()
 	for (p = keywords; p->token; p++)
 		insert(p->lexptr, p->token);
 }
-
