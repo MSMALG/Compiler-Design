@@ -19,10 +19,7 @@ int main() {
     init();
     parse();
 
-    fclose(output);
-    fclose(err);
-    fclose(input);
-
+    
     return 0;
 }
 
